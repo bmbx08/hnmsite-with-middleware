@@ -1,0 +1,263 @@
+@font-face{
+    font-family: 'NanumSquare';
+    font-style: 'normal';
+    font-weight: 400;
+    src: url('../public/fonts/NanumSquareR.otf');
+}
+
+@font-face{
+    font-family: 'NanumSquareB';
+    font-style: 'normal';
+    font-weight: 400;
+    src: url('../public/fonts/NanumSquareB.otf');
+}
+
+@font-face{
+    font-family: 'NanumSquareL';
+    font-style: 'normal';
+    font-weight: 400;
+    src: url('../public/fonts/NanumSquareL.otf');
+}
+
+body{
+    font-family: 'NanumSquare';
+}
+
+.top-navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+}
+
+.top-left{
+    display:flex;
+    align-items:center;
+    font-size:0.8em;
+}
+
+.top-left>div{
+    margin-right: 1em;
+}
+
+.top-left>div:hover{
+    cursor:pointer;
+    color:red;
+}
+
+.top-right{
+    display:flex;
+}
+
+.top-right-button{
+    display:flex;
+    align-items: center;
+    margin-left: 1em;
+}
+
+.top-right-button:hover{
+    cursor:pointer;
+    color:red;
+}
+
+.nav-section{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.nav-section>img:hover{
+    cursor:pointer;
+}
+
+.user-icon{
+    margin-right: 0.3em;
+}
+
+.menu-area{
+    display: flex;
+    justify-content: center;
+}
+
+.menu-list{
+    display: flex;
+    list-style-type: none;
+    padding-left:0px;
+    margin-bottom: 30px;
+}
+
+.menu-list li{
+    padding:10px;
+}
+
+.menu-list a{
+    text-decoration:none;
+    color: black;
+}
+
+.menu-list a:hover{
+    color:rgb(255, 60, 0);
+    transition: all 0.3s ease 0s;
+}
+
+.search-area{
+    position:absolute;
+    right: 20px;
+    padding-bottom:3px;
+    border-bottom: 1px solid black;
+}
+
+.search-icon{
+    width: 13px;
+}
+
+input{
+    border:none;
+    padding-left: 6px;
+}
+
+:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px; 
+}
+
+.product-card{
+    margin-bottom: 0.5em;
+}
+
+.img-container{
+    overflow: hidden;
+}
+
+.product-card:hover{
+    cursor:pointer;
+}
+
+.product-card:hover .card-image{
+    transform: scale(1.1);
+    transition: all 0.5s ease 0s;
+}
+
+.product-card>img{
+    margin-bottom: 0.5em;
+}
+
+.product-card:hover .card-title{
+    color:red;
+    transition: all 0.3s ease 0s;
+}
+
+.conscious-card-text{
+    font-size: 0.7em;
+    color: rgb(255, 138, 42)
+}
+
+.no-conscious{
+    margin-bottom: 0.5em;
+}
+
+.card-price{
+    font-size:0.8em;
+}
+
+.card-new{
+    font-size: 0.6em;
+}
+
+.product-img{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.detail-section>div{
+    margin-bottom: 1em;
+}
+
+.product-title{
+    font-size: 1.5em;
+}
+
+.conscious-text{
+    font-size: 0.8em;
+}
+
+.detail-button-style{
+    width:100%;
+}
+
+
+@media (max-width: 575px){
+    .top-left{
+        display:none;
+    }
+
+    .top-navbar{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:1em;
+    }
+    
+    .top-navbar>button{
+        width: 3em;
+        height: 2.5em;
+        margin: 1em;
+    }
+
+    .user-icon{
+        transform: scale(1.3);
+        margin-left: 1em;
+    }
+
+    .user-text{
+        display:none;
+    }
+
+    .offcanvas-title{
+        margin: 10px;
+        margin-top: 20px; 
+    }
+
+    .nav-section{
+        padding-bottom: 20px;
+    }
+
+    .menu-area{
+        display:flex;
+        justify-content: middle;
+        margin-bottom: 4em;
+    }
+    
+    .search-area{
+        position:relative;
+        left: 10px;
+        width: 80%;
+        padding-bottom:3px;
+        border: 1px solid black;
+        border-radius: 20px;
+    }
+
+    .search-area>input{
+        width:93%;
+    }
+
+    input{
+        padding-left: 15px;
+    }
+
+    .search-icon{
+        position: relative;
+        left: 9px;
+    }
+
+    .column{
+        display:flex;
+        justify-content: center;
+        margin-bottom: 3em;
+    }
+
+    .product-card{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
