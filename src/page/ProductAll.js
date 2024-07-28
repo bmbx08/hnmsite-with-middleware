@@ -4,6 +4,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import {productAction} from "../redux/actions/productAction"
 import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts, getProducts } from "../redux/reducers/productSlice";
 
 const ProductAll = () => {
   const productList=useSelector((state)=>state.product.productList); //combineReducer을 썼다면 어떤 reducer 안에서 state을 가져올건지 명시해야됨.->product.productList
@@ -15,7 +16,7 @@ const ProductAll = () => {
     console.log("쿼리값",searchQuery);
     let categoryQuery=query.get('category')||"";
     console.log("항목쿼리",categoryQuery);
-    dispatch(productAction.getProducts(searchQuery,categoryQuery)) //액션객체를 던지면 store로 요청을 하는거므로 다음과 같이 요청해야됨.
+    dispatch(fetchProducts({searchQuery,categoryQuery})) //액션객체를 던지면 store로 요청을 하는거므로 다음과 같이 요청해야됨.
   };
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import rootReducer from "./reducers"; //경로는 ./reducers/index 또는 ./redu
 
 import{configureStore} from "@reduxjs/toolkit";
 
-import productReducer from "./reducers/productReducer";
+import productReducer from "./reducers/productSlice";
 import authenticateReducer from "./reducers/authenticateReducer";
 
 
