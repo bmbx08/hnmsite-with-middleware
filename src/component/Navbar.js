@@ -10,8 +10,14 @@ import {faBasketShopping} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { authenticateAction } from "../redux/actions/authenticateAction";
+import { useDispatch, useSelector } from "react-redux";
 
-const Navbar = ({authenticate,setAuthenticate}) => {
+const Navbar = () => {
+
+  const dispatch=useDispatch();
+  const authenticate=useSelector((state)=>state.auth.authenticate);
+
   const menuList = [
     "Women",
     "Men",
@@ -32,7 +38,7 @@ const Navbar = ({authenticate,setAuthenticate}) => {
 
   const logoutUser=()=>{
     console.log("logout user");
-    setAuthenticate(false);
+    dispatch(authenticateAction.logout());
   }
 
   const goToMain=()=>{
