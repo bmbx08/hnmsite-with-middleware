@@ -16,7 +16,7 @@ const ProductAll = () => {
     console.log("쿼리값",searchQuery);
     let categoryQuery=query.get('category')||"";
     console.log("항목쿼리",categoryQuery);
-    dispatch(fetchProducts({searchQuery,categoryQuery})) //액션객체를 던지면 store로 요청을 하는거므로 다음과 같이 요청해야됨.
+    dispatch(fetchProducts({searchQuery,categoryQuery})) //액션객체를 던지면 store로 요청을 하는거므로 다음과 같이 요청해야됨, 매개변수가 여러개면 객체 형태로 전달하기
   };
 
   useEffect(() => {

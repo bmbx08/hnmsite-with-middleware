@@ -1,4 +1,4 @@
-import { productActions } from "../reducers/productSlice";
+// import { productActions } from "../reducers/productSlice";
 
 // function getProducts(searchQuery,categoryQuery){
 //     return async(dispatch,getState)=>{
@@ -20,15 +20,15 @@ import { productActions } from "../reducers/productSlice";
 //     }
 // }
 
-function getProductDetails(id){
-  return async(dispatch)=>{
-    let url= `https://my-json-server.typicode.com/bmbx088/hnm-with-middleware/products/${id}`;
-    let response= await fetch(url);
-    let data= await response.json();
-    console.log("detail",data);
-    // dispatch({type:"GET_PRODUCT_DETAIL",payload:{data}});
-    dispatch(productActions.getSingleProduct({data}));
-  }
-}
+// function getProductDetails(id){
+//   return async(dispatch)=>{
+//     let url= `https://my-json-server.typicode.com/bmbx088/hnm-with-middleware/products/${id}`;
+//     let response= await fetch(url);
+//     let data= await response.json();
+//     console.log("detail",data);
+//     // dispatch({type:"GET_PRODUCT_DETAIL",payload:{data}});
+//     dispatch(productActions.getSingleProduct({data}));
+//   }
+// }
 
-export const productAction={getProductDetails}
+// export const productAction={getProductDetails}

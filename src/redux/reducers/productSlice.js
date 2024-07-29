@@ -6,22 +6,35 @@ let initialState = {
   isLoading: false,
   error: null,
 };
-//query 두개 받는 경우로 매개변수 수정해야됨
-export const fetchProducts = createAsyncThunk( //ProductAll에서 호출하기 위해 export
+
+export const fetchProducts = createAsyncThunk(
+  //ProductAll에서 호출하기 위해 export
   "product/fetchAll",
-  async ({searchQuery,categoryQuery}, thunkAPI) => {
+  async ({searchQuery, categoryQuery}, thunkAPI) => {
     try {
       let url;
       if (searchQuery !== "") {
         console.log("search");
         url = `https://my-json-server.typicode.com/bmbx088/hnm-with-middleware/products?q=${searchQuery}`; //q=~를 붙이면 자동으로 검색하는 것은 json-server에서 제공하는 기능
-      } 
-      else if (categoryQuery !== "") {
+      } else if (categoryQuery !== "") {
         console.log("category");
         url = `https://my-json-server.typicode.com/bmbx088/hnm-with-middleware/products?category_like=${categoryQuery}`;
       } else {
         url = `https://my-json-server.typicode.com/bmbx088/hnm-with-middleware/products?category_like=${categoryQuery}`;
       }
+      let response = await fetch(url);
+      return await response.json();
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchProductDetails = createAsyncThunk(
+  "product/fetchDetails",
+  async (id, thunkAPI) => {
+    try {
+      let url = `https://my-json-server.typicode.com/bmbx088/hnm-with-middleware/products/${id}`;
       let response = await fetch(url);
       return await response.json();
     } catch (error) {
@@ -67,6 +80,18 @@ const productSlice = createSlice({
         state.productList = action.payload;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+    builder
+      .addCase(fetchProductDetails.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchProductDetails.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.selectedItem = action.payload;
+      })
+      .addCase(fetchProductDetails.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

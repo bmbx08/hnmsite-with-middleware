@@ -3,6 +3,7 @@ import { Col, Container, Row, Dropdown, DropdownButton, Button } from 'react-boo
 import { useParams } from 'react-router'
 import { productAction } from '../redux/actions/productAction';
 import { useDispatch,useSelector } from 'react-redux';
+import { fetchProductDetails } from '../redux/reducers/productSlice';
 
 const ProductDetail = () => {
 
@@ -11,7 +12,7 @@ const ProductDetail = () => {
   let {id}=useParams();
 
   const getProductDetail=async()=>{
-    dispatch(productAction.getProductDetails(id));
+    dispatch(fetchProductDetails(id));
   }
 
   useEffect(()=>{
